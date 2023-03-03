@@ -30,6 +30,12 @@ pipeline {
         // sh 'terraform plan -var app_name=${TF_VAR_app_name} -var env=${TF_VAR_env} -out=tfplan'
       }
     }
+    stage('Approve') {
+      steps {
+        // Prompt the user to approve the changes
+        input message: 'Are you sure you want to apply these changes?', ok: 'Approve'
+      }
+    }
     stage('Terraform Apply') {
       steps {
         sh 'terraform apply -auto-approve'
