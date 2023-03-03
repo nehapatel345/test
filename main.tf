@@ -1,6 +1,6 @@
 provider "google" {
  
-  project     = "magnetic-quasar-378605"
+  project     = "jenkins-server-project"
   region      = "asia-south1"
 }
 
@@ -8,7 +8,7 @@ provider "google" {
 resource "google_compute_instance" "my-cicd-vm" {
   name         = "cicd-vms"
   machine_type = "e2-small"
-  project = "magnetic-quasar-378605"
+  project = "jenkins-server-project"
   zone     = "asia-south1-a"
 
  
