@@ -11,7 +11,11 @@ pipeline {
         git branch: 'main', url: 'https://github.com/nehapatel345/test'
       }
     }
-    
+    stage('gcp_authentication'){
+            steps{
+                sh 'gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS'
+            }
+        }
   
     
     stage('Terraform Init') {
