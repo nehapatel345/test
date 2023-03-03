@@ -30,16 +30,6 @@ pipeline {
         // sh 'terraform plan -var app_name=${TF_VAR_app_name} -var env=${TF_VAR_env} -out=tfplan'
       }
     }
-  stage('manual approval 1'){
-            steps{
-                script{
-                    timeout(10) {
-                        input 'Want to deploy on VM?'
-                    }
-                }
-            }
-        }
-    
     stage('Terraform Apply') {
       steps {
         sh 'terraform apply -auto-approve'
